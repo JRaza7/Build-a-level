@@ -9,15 +9,16 @@ public class PlayerController : MonoBehaviour
 
    
     private Rigidbody playerRb;
-    private float speed = 2f;
-    //private Vector3 gravity = new Vector3(0, -1f, 0);
+    private float speed = 4f;
+   // private Vector3 gravity = new Vector3(0, -1f, 0);
 
     // Variables related to jumping
     private float jumpForce = 5f;
     private bool isGrounded = true;
 
     private Animator anim;
-    private string run = "Run";
+    private string run = "Run Forward";
+    
 
 
 
@@ -25,12 +26,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //Physics.gravity = gravity;
+      //  Physics.gravity = gravity;
  
     }
 
@@ -68,14 +70,14 @@ public class PlayerController : MonoBehaviour
 
         if (!Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W))
         {
-            Debug.Log("End of run");
+           
             anim.SetBool(run, false);
 
         }
 
         if (Input.GetKey(KeyCode.W))
         {
-            Debug.Log("fart");
+            
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
             anim.SetBool(run, true);
 

@@ -37,7 +37,7 @@ public class LookAround : MonoBehaviour
 
         // Apllied rotations
         transform.eulerAngles = new Vector3(verticalRotation, horizontalRotation, transform.eulerAngles.z);
-        player.eulerAngles = new Vector3(verticalRotation, player.eulerAngles.y, player.eulerAngles.z);
+        player.eulerAngles = new Vector3(player.eulerAngles.x, horizontalRotation, player.eulerAngles.z);
 
         // Move the focal point with the player
         transform.position = player.position;
