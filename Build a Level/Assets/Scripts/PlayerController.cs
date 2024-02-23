@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
    
     private Rigidbody playerRb;
-    private float speed = 4f;
+    private float speed = 7f;
    // private Vector3 gravity = new Vector3(0, -1f, 0);
 
     // Variables related to jumping
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     private string run = "Run Forward";
+    private string jump = "Jump";
     
 
 
@@ -62,6 +63,8 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            anim.SetBool(run, false);
+            anim.SetTrigger(jump);
         }
     }
 
